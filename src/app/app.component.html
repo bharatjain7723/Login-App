@@ -1,4 +1,4 @@
-<!--The content below is only a placeholder and can be replaced.-->
+<!-- The content below is only a placeholder and can be replaced.
 <div style="text-align:center">
   <h1>
     Welcome to {{ title }}!
@@ -16,5 +16,49 @@
   <li>
     <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
   </li>
-</ul>
+</ul> -->
 
+<!-- <a routerLink = "/register">Register</a>
+<a routerLink = "/welcome">Welcome</a> -->
+
+<body>
+  <header>
+      <div class="container">
+          <div id="branding">
+              <img src="../images/google_logo.png">
+              <h1><span class="highlight">Bharat</span> Tech Solutions</h1>
+          </div>
+      </div>
+  </header>
+
+  <section id="showcase">
+      <div class="container">
+          <section id="login_form">
+              <div class="dark">
+                  <h2>Login</h2>
+                  <form class="login" name="loginForm" action="./welcome.html" onsubmit="return validateForm()" method="post"> 
+                      <div>
+                          <label>Email</label><br>
+                          <input type="email" placeholder="Email Address" name="email">
+                      </div>
+                      <div>
+                          <label>Password</label><br>
+                          <input type="password" placeholder="Password" name="password">
+                      </div>
+                      <button class="button_1" type="submit">Login</button>       
+                  </form>
+
+                  <!-- <h4>New User ? <a href="register.html">Register here</a></h4> -->
+                  <h4>New User ? <a routerLink = "/register">Register here</a></h4>
+                  
+              </div>
+          </section>
+      </div>
+  </section>
+  
+  <footer>
+      <p>Copyright &copy; 2017, A Bharat Jain Creation</p>
+  </footer>
+
+  <router-outlet></router-outlet>
+  
