@@ -1,7 +1,7 @@
 <header>
-  <div class="container">
+  <div class="container header_container">
       <div id="branding">
-          <img src="../../images/google_logo.png">
+          <img src="assets/google_logo.png">
           <h1><span class="highlight">Bharat</span> Tech Solutions</h1>
       </div>
   </div>
@@ -12,22 +12,22 @@
       <section id="registration_form">
           <div class="dark">
               <h2>Register</h2>
-              <form class="register">
+              <form [formGroup]="myForm" class="register" name="RegisterForm" action="./welcome" (ngSubmit)="RegisterationForm(myForm)">
                   <div>
                       <label>Name</label><br>
-                      <input type="text" placeholder="Name">
+                      <input type="text" placeholder="Name" name="name" formControlName="name" required>
                   </div>
                   <div>
                       <label>Email</label><br>
-                      <input type="email" placeholder="Email Address">
+                      <input type="email" placeholder="Email Address" formControlName="email" required>
                   </div>
                   <div>
                       <label>Password</label><br>
-                      <input type="password" placeholder="Password">
+                      <input type="password" placeholder="Password" formControlName="password" required>
                   </div>
                   <div>
                       <label>Confirm Password</label><br>
-                      <input type="password" placeholder="Confirm Password">
+                      <input type="password" placeholder="Confirm Password" formControlName="confirmPassword" required>
                   </div>
                   <button class="button_1" type="submit">Register</button>       
               </form>

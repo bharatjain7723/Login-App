@@ -1,0 +1,36 @@
+<body>
+  <header>
+      <div class="container header_container">
+          <div id="branding">
+              <img src="assets/google_logo.png">
+              <h1><span class="highlight">Bharat</span> Tech Solutions</h1>
+          </div>
+      </div>
+  </header>
+
+  <section id="showcase">
+      <div class="container">
+          <section id="login_form">
+              <div class="dark">
+                  <h2>Login</h2>
+                  <form [formGroup]="myForm" class="login" name="loginForm" (ngSubmit)="validateForm(myForm)"> 
+                      <div>
+                          <label>Email</label><br>
+                          <input type="email" placeholder="Email Address" name="email" formControlName="email" required>
+                      </div>
+                      <div>
+                          <label>Password</label><br>
+                          <input type="password" placeholder="Password" name="password" formControlName="password" required>
+                      </div>
+                      <button class="button_1" type="submit">Login</button>   
+                  </form>
+                  <h4>New User ? <a routerLink = "/register">Register here</a></h4>
+                  
+              </div>
+          </section>
+      </div>
+  </section>
+  
+  <footer>
+      <p>Copyright &copy; 2017, A Bharat Jain Creation</p>
+  </footer>
