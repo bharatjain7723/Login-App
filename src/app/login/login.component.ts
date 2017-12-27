@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormArray, NgForm } from '@angular/forms';
-
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-login',
@@ -11,7 +11,7 @@ export class LoginComponent implements OnInit {
 
   private myForm: FormGroup;  
 
-  constructor() { }
+  constructor(public router: Router) { }
 
   ngOnInit() {
     this.myForm = new FormGroup({
@@ -21,19 +21,18 @@ export class LoginComponent implements OnInit {
   }
 
   validateForm(myForm: NgForm) {
-    // var x = document.forms["loginForm"]["email"].value;
-    // var y = document.forms["loginForm"]["password"].value;
-    var x = myForm.value.email.value;
-    var y = myForm.value.password.value;
-    if (x == "" || y == "") {
+    var x = this.myForm.value.email;
+    var y = this.myForm.value.password;
+    console.log(x + " and " + y);
+    
+    if (x === null || y === null) {
         alert("All feilds must be filled out");
-        return false;
     }
-    if ( x=="bharat@gmail.com" && y=="bharatjain")
-        return true;
-    else
-        alert("Email or password is incorrect");
-        return false;    
+    else if ( x=="bharat@gmail.com" && y=="bharatjain"){
+      this.router.navigate(['welcome']);      
+    }
+    else{
+        alert("Email or password is incorrect");        
+    }
   }
-
 }

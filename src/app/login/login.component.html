@@ -13,7 +13,7 @@
           <section id="login_form">
               <div class="dark">
                   <h2>Login</h2>
-                  <form [formGroup]="myForm" class="login" name="loginForm" (ngSubmit)="validateForm(myForm)"> 
+                  <form [formGroup]="myForm" class="login"   (ngSubmit)="validateForm(myForm)"> 
                       <div>
                           <label>Email</label><br>
                           <input type="email" placeholder="Email Address" name="email" formControlName="email" required>

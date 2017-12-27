@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormArray, NgForm } from '@angular/forms';
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-register',
@@ -8,9 +9,9 @@ import { FormGroup, FormControl, FormArray, NgForm } from '@angular/forms';
 })
 export class RegisterComponent implements OnInit {
 
-  private myForm: FormGroup;    
+  private myForm: FormGroup; 
 
-  constructor() { }
+  constructor(public router: Router) { }
 
   ngOnInit() {
     this.myForm = new FormGroup({
@@ -20,23 +21,22 @@ export class RegisterComponent implements OnInit {
       'confirmPassword': new FormControl()
     }); 
   }
+  
 
   RegisterationForm(myForm: NgForm){
-    // var w = document.forms["RegisterForm"]["username"].value;
-    // var x = document.forms["RegisterForm"]["email"].value;
-    // var y = document.forms["RegisterForm"]["password"].value;
-    // var z = document.forms["RegisterForm"]["confirmPassword"].value;
-    var x = myForm.value.email.value;
-    var y = myForm.value.password.value;
-    var w = myForm.value.name.value;
-    var z = myForm.value.confirmPassword.value;
-    if (w == "" || x == "" || y == "" || z =="") {
+    var x = this.myForm.value.email;
+    var y = this.myForm.value.password;
+    var w = this.myForm.value.name;
+    var z = this.myForm.value.confirmPassword;
+    if (w === null || x === null || y === null || z === null) {
         alert("All feilds must be filled out");
-        return false;
+    }
+    else if(y!==z){
+        alert("Password and Confirm Password don't match");
     }
     else{
         alert("Welcome " + w);
-        return true;
+        this.router.navigate(['welcome']);
     }
 }
 
